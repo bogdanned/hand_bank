@@ -6,7 +6,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import CompressionWebpackPlugin from "compression-webpack-plugin"
 import AssetsPlugin from 'assets-webpack-plugin'
 
-const isDev = true
+const isDev = true,
+      port=5000
 
 const vendor = [
   "react",
@@ -46,7 +47,8 @@ export default {
     },
   output : {
     path: path.join(__dirname, "public"),
-    filename: isDev ? 'bundle-[name].js': 'bundle-[name]-[hash].js'
+    filename: isDev ? 'bundle-[name].js': 'bundle-[name]-[hash].js',
+    publicPath: `http://localhost:${port}`
   },
   devServer : {
     hot: true,
