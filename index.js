@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 
+const PORT = process.env.PORT || 5000
+
 var app = express();
 
 app.get('/', (req, res)=>{
@@ -8,4 +10,4 @@ app.get('/', (req, res)=>{
 })
 
 
-app.listen(3000, ()=>(console.log('server started')))
+app.listen(PORT, ()=>(console.log('server started')))
