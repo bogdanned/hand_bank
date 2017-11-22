@@ -3,15 +3,25 @@ import React from 'react'
 import {ThemeProvider} from 'styled-components'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {Provider} from "react-redux"
+import {ThemeProvider} from 'styled-components'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { reducer as reduxFormReducer } from 'redux-form'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 import App from './components/app.js'
 
+
+const theme = {
+  brandColor: "#27AE61",
+  primaryColor: "#F5F5F5",
+  secondaryColor: "white"
+}
+
 const renderApp = () => {
   render(
-    <App></App>
+    <ThemeProvider theme=“theme”>
+      <App></App>
+    </ThemeProvider>
     , document.getElementById("app"))
 }
 
