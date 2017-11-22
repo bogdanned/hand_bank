@@ -87,7 +87,7 @@ export default class Order extends React.Component{
       <Service service={s} key={s.name}></Service>
     ))
     return <Root>
-          <Header title={`Order: ${order.name}`}></Header>
+          <h1>{order.name}</h1>
           <Menu pointing secondary>
             <Menu.Item name='Offer Details' active={this.state.order === 'offer'} onClick={this.onClickOffer} />
             <Menu.Item name='Materials' active={this.state.order === 'supplier'} onClick={this.onClickSupplier} />

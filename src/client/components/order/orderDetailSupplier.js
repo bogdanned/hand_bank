@@ -57,7 +57,20 @@ const Manufacturer = ({products, prodName}) => {
   )
 }
 
+const PlaceOrderContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`
 
+const PlaceOrder = styled.button`
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 4px;
+`
 
 
 export default class OrdersMan extends React.Component{
@@ -69,8 +82,13 @@ export default class OrdersMan extends React.Component{
       )
     })
     return (<Root>
-        <h1>{this.props.order.name}</h1>
+        <PlaceOrderContainer>
+          <PlaceOrder>Order Materials</PlaceOrder>
+        </PlaceOrderContainer>
         {rendMan}
+        <PlaceOrderContainer>
+          <PlaceOrder>Order Materials</PlaceOrder>
+        </PlaceOrderContainer>
       </Root>)
   }
 }

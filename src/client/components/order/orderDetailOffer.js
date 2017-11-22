@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import groupByManufacturer from '../../controllers/groupByManufacturer'
 
-
 const Root = styled.div`
-
+  width: 100%;
 `
 
 const Header = styled.div`
@@ -28,49 +27,41 @@ const ServiceRoot = styled.div`
 `
 
 
-const Product = ({product: {name, price, manufacturer}}) => (
+const Product = ({product: {name, price, producer}}) => (
   <ProdRoot>
     <h6>{`${name}`}</h6>
     <h6>{`Price: ${price}`}</h6>
+    <h6>{`Manufacturer: ${producer}`}</h6>
   </ProdRoot>
 )
 
 const Products = ({products}) => {
   let prodRend = products.map(p => (<Product product={p}/>))
-  let cost = products.reduce((a, b) => {
-    return a + parseInt(b.price)
-  }, 0)
   return (
     <div>
       {prodRend}
-      <div>Total Cost: {cost}</div>
     </div>
   )
 }
 
-const Manufacturer = ({products, prodName}) => {
-  return(
-    <ServiceRoot>
-      <h3>{`${prodName}`}</h3>
-      {products && <Products products={products}/>}
-    </ServiceRoot>
-  )
-}
-
+const Service = ({service: {name, products, quality}}) => (
+  <ServiceRoot>
+    <h3>{`${quality} ${name}`}</h3>
+    {products && <Products products={products}/>}
+  </ServiceRoot>
+)
 
 
 
 export default class OrdersMan extends React.Component{
   render(){
-    let producers = groupByManufacturer(this.props.order)
-    let rendMan = Object.keys(producers).map(key => {
+    let servicesRen = this.props.order.services.map(s => {
       return(
-        <Manufacturer products={producers[key]} prodName={key}/>
+        <Service service={s} />
       )
     })
     return (<Root>
-        <h1>{this.props.order.name}</h1>
-        {rendMan}
+        {servicesRen}
       </Root>)
   }
 }
