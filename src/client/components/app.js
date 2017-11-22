@@ -7,7 +7,8 @@ import Test from './test'
 import Dashboard from './Dashboard'
 import Flow from './flow'
 import data from '../data/offer'
-import Orders from './Orders'
+import OrderList from './orderList'
+import Order from './order/index.js'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
@@ -98,7 +99,8 @@ export default () => (
     </Sidebar>
     <Content>
       <Route exact path="/" component={Dashboard}/>
-      <Route path="/orders" component={Orders}/>
+      <Route exact path="/orders" component={OrderList}/>
+      <Route path="/orders/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>
       <Route path="/transactions" component={Transactions}/>
       <Route path="/flow" component={Flow}/>

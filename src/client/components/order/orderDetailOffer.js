@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import groupByManufacturer from '../controllers/groupByManufacturer'
+import groupByManufacturer from '../../controllers/groupByManufacturer'
 
 
 const Root = styled.div`
@@ -64,7 +64,6 @@ export default class OrdersMan extends React.Component{
   render(){
     let producers = groupByManufacturer(this.props.order)
     let rendMan = Object.keys(producers).map(key => {
-      console.log(producers[key], 'producer')
       return(
         <Manufacturer products={producers[key]} prodName={key}/>
       )
