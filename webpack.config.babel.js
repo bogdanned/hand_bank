@@ -7,8 +7,8 @@ import CompressionWebpackPlugin from "compression-webpack-plugin"
 import AssetsPlugin from 'assets-webpack-plugin'
 
 const isDev = true,
-      host = '0.0.0.0',
-      port = 3000
+      host = '127.0.0.1',
+      port = process.env.PORT || 5000
 
 const vendor = [
   "react",
