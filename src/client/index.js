@@ -18,9 +18,11 @@ const theme = {
 
 const renderApp = () => {
   render(
-    <ThemeProvider theme={theme}>
-      <App></App>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <App></App>
+      </ThemeProvider>
+    </Router>
     , document.getElementById("app"))
 }
 

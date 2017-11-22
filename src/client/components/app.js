@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Button} from 'semantic-ui-react'
+import {Route,Link} from 'react-router-dom'
 
 const Root = styled.div`
   display: flex;
@@ -26,7 +27,6 @@ export default () => (
   <Root>
     <Sidebar>
       <MenuItem>
-        <p>Cashflow Prediction</p>
       </MenuItem>
       <MenuItem>
         <p>Cashflow Prediction</p>
