@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import data from '../data/offer'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
+
+import Test from './test'
 import Dashboard from './Dashboard'
+import Flow from './flow'
+import data from '../data/offer'
 import Orders from './Orders'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
 const Root = styled.div`
-  display: absolute;
-  top: 0px;
-  left: 0px;
-  heihgt: 100%;
-  background-color: ${props => props.theme.brandColor};
-
+  display: flex;
+  flex-direction: row;
 `
+
 const Sidebar = styled.div`
   width: 300px;
   height: 100vh;
@@ -23,7 +23,6 @@ const Sidebar = styled.div`
 `
 
 const Content = styled.div`
-  width: 100%;
 `
 
 const Menu = styled.div`
@@ -44,6 +43,9 @@ const Label = styled.p`
   };
 `
 
+export default () => (
+  <Root>
+    <Sidebar>
       <Menu>
         <MenuItem to='/home'>
           <p>Home</p>
@@ -57,38 +59,18 @@ const Label = styled.p`
         <MenuItem to='/transactions'>
           <p>Transactions</p>
         </MenuItem>
+        <MenuItem to='/flow'>
+          <p>Create Order</p>
+        </MenuItem>
       </Menu>
     </Sidebar>
     <Content>
       <Route path="/home" component={Dashboard}/>
+      <Route path="/orders" component={Orders}/>
+      <Route path="/suppliers" component={Suppliers}/>
+      <Route path="/transactions" component={Transactions}/>
+      <Route path="/flow" component={Flow}/>
+      <Route path="/test" component={Test}/>
     </Content>
   </Root>
 )
-
-
-export default () => {
-  return  <Root>
-      <Sidebar>
-        <Menu>
-          <MenuItem to='/home'>
-            <Label>Home</Label>
-          </MenuItem>
-          <MenuItem to='/orders'>
-            <Label>Orders</Label>
-          </MenuItem>
-          <MenuItem to='/suppliers'>
-            <Label>Suppliers</Label>
-          </MenuItem>
-          <MenuItem to='/transactions'>
-            <Label>Transactions</Label>
-          </MenuItem>
-        </Menu>
-      </Sidebar>
-      <Content>
-        <Route path="/home" component={Dashboard}/>
-        <Route path="/orders" component={Orders}/>
-        <Route path="/suppliers" component={Suppliers}/>
-        <Route path="transactions" component={Transactions} />
-      </Content>
-    </Root>
-}
