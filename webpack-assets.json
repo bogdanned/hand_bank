@@ -1,1 +1,1 @@
-{"app":{"js":"http://localhost:5000bundle-app.js"},"vendor":{"js":"http://localhost:5000bundle-vendor.js"}}
+{"app":{"js":"https://afternoon-gorge-49908.herokuapp.com/bundle-app.js"},"vendor":{"js":"https://afternoon-gorge-49908.herokuapp.com/bundle-vendor.js"}}

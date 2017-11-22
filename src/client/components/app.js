@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import data from '../data/offer'
 
 const Root = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ const MenuItem = styled.div`
 
 export default () => (
   <Root>
+    {JSON.stringify(data)}
     <Sidebar>
       <MenuItem>
         <p>Cashflow Prediction</p>

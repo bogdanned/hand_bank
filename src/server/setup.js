@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser'
+var express = require('express');
 
 
 export default (app) => {

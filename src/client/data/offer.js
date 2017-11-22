@@ -1,5 +1,5 @@
 export default {
-  title: "Offer 1"
+  title: "Offer 1",
   services: [
     {
       name: "Service 1",
