@@ -3,12 +3,16 @@ import styled from 'styled-components'
 import {Button} from 'semantic-ui-react'
 
 const Root = styled.div`
-  display: flex;
+  display: absolute;
+  top: 0px;
+  left: 0px;
+  heihgt: 100%;
+  background-color: ${props => props.theme.brandColor};
+
 `
 const Sidebar = styled.div`
-  width: 200px;
+  width: 300px;
   padding: 5rem 1rem 1rem 1rem;
-  height: 100 vh;
 `
 
 const Content = styled.div`
@@ -29,10 +33,10 @@ export default () => (
         <p>Cashflow Prediction</p>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Margin Calculation</p>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Supplier Scoring</p>
       </MenuItem>
     </Sidebar>
     <Content>
