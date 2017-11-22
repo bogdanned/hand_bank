@@ -1,24 +1,44 @@
 export default[
   {
-    name : "Service 1",
-    id: "",
+    name : "Shower Installation",
+    quality: "Luxury",
+    id: "shower",
     products : [
       {
-        name: "SuprapurCompact-O-KUB",
-        price: "3454 euro",
+        id: "shower_tap",
+        name: "Shower Tap",
+        price: "3454",
+        manufacturer: "Junkers"
+      },
+      {
+        id: "shower_screen",
+        name: "Shower Screen",
+        price: "3454",
+        manufacturer: "Junkers"
+      },
+      {
+        id: "shower_tray",
+        name: "Shower Tray",
+        price: "3454",
+        manufacturer: "Junkers"
+      },
+      {
+        name: "Shower Plumbing",
+        price: "3454",
         manufacturer: "Junkers"
       }
     ]
   }, {
-    name : "Service 2",
+    name : "Bidet Installation",
+    quality: "Normal",
     products : [
       {
-        name: "Vitoladens 300-C",
+        name: "Bidet Seat",
         price: "345423 euro",
         manufacturer: "Viessmann",
         fuel: "heating oil"
       }, {
-        name: "product 123",
+        name: "Bidet ",
         price: "345423 euro",
         manufacturer: "Junkers"
       }
