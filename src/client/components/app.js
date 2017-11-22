@@ -71,7 +71,7 @@ export default () => (
   <Root>
     <Sidebar>
       <Menu>
-        <Logo><img src="logo.png" height="42" width="42"/></Logo>
+        <Logo><img src="logo.png" height="60" width="42"/></Logo>
         <MenuItem to='/'>
           <Label>Dashboard</Label>
         </MenuItem>
