@@ -64,6 +64,7 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 8rem;
+  border-bottom: 2px solid rgba(255,255,255, 0.7);
 `
 
 export default () => (
