@@ -9,37 +9,44 @@ const Root = styled.div`
 `
 const Sidebar = styled.div`
   width: 200px;
-  padding: 5rem 1rem 1rem 1rem;
-  height: 100 vh;
+  height: 100vh;
+  background-color: ${props => props.theme.brandColor};
 `
 
 const Content = styled.div`
   width: 100%;
 `
 
+const Menu = styled.div`
+
+`
+
 const MenuItem = styled.div`
   padding: 0.5rem;
-  background-color: ${props => props.theme.brandColor};
   color: white;
   cursor: pointer;
+  :hover {
+    background-color: ${props => props.theme.primaryColor};
+  }
 `
 
 export default () => (
   <Root>
-    <h1>test</h1>
-    {JSON.stringify(data)}
     <Sidebar>
-      <MenuItem>
-      </MenuItem>
-      <MenuItem>
-        <p>Cashflowasdasd Pasdasdasdredaasdasdsdasdicddtion</p>
-      </MenuItem>
-      <MenuItem>
-        <p>Cashflow cash</p>
-      </MenuItem>
+      <Menu>
+        <MenuItem>
+          <Link to='/home'><p>Home</p></Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to='/orders'><p>Orders</p></Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to='/suppliers'><p></p></Link>
+        </MenuItem>
+      </Menu>
     </Sidebar>
     <Content>
-      <Button onClick={() => (console.log("hellos"))}>test</Button>
+      <Route path="/home" component={Dashboard}/>
     </Content>
   </Root>
 )
