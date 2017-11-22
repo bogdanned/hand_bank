@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Button} from 'semantic-ui-react'
 
 const Root = styled.div`
   display: flex;
@@ -35,7 +36,7 @@ export default () => (
       </MenuItem>
     </Sidebar>
     <Content>
-      <h1></h1>
+      <Button onClick={() => (console.log("hellos"))}>test</Button>
     </Content>
   </Root>
 )
