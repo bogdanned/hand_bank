@@ -26,7 +26,7 @@ const Footer = styled.div`
 `
 
 const Sidebar = styled.div`
-  width: 300px;
+  min-width: 250px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -47,15 +47,18 @@ const Menu = styled.div`
 const MenuItem = styled(Link)`
   color: white;
   text-decoration: none;
+  text-transform: none;
 `
 
 const Label = styled.p`
   cursor: pointer;
+  color: white
   text-transform: uppercase;
   padding: 1rem 1rem 1rem 2rem;
   font-size: 1.6rem;
   :hover {
     background-color: ${props => props.theme.primaryColor};
+    color: white;
   };
 `
 
