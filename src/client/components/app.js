@@ -36,6 +36,7 @@ const Sidebar = styled.div`
 `
 
 const Content = styled.div`
+  width: 100%;
 `
 
 const Menu = styled.div`

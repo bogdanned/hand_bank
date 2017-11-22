@@ -11,7 +11,7 @@ import Header from './Header'
 
 
 const Root = styled.div`
-
+  width: 100%;
 `
 
 let orders = [orderEx, orderEx, orderEx]
@@ -23,12 +23,20 @@ export default class Orders extends React.Component {
       order: ""
     }
     this.onClick = this.onClick.bind(this)
+    this.offer = this.offer.bind(this)
   }
 
   onClick(e){
     e.preventDefault()
     this.setState({
       order: "man"
+    })
+  }
+
+  offer(e){
+    e.preventDefault()
+    this.setState({
+      order: ""
     })
   }
 
@@ -48,12 +56,9 @@ export default class Orders extends React.Component {
     return <Root>
       <Header title={"Orders"} />
       <Menu pointing secondary>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-        <Menu.Item name='Order Materials' active={this.state.order === 'man'} onClick={this.onClick} />
-        <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
-        <Menu.Menu position='right'>
-          <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-        </Menu.Menu>
+        <Menu.Item name='Offer Details' active={this.state.order === ''} onClick={this.offer} />
+        <Menu.Item name='Materials' active={this.state.order === 'man'} onClick={this.onClick} />
+        <Menu.Item name='Payments' active={activeItem === 'friends'} onClick={this.handleItemClick} />
       </Menu>
       {ordersRen}
     </Root>
