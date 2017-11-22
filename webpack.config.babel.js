@@ -48,7 +48,7 @@ export default {
   output : {
     path: path.join(__dirname, "public"),
     filename: isDev ? 'bundle-[name].js': 'bundle-[name]-[hash].js',
-    publicPath: `http://afternoon-gorge-49908.herokuapp.com/`
+    publicPath: `https://afternoon-gorge-49908.herokuapp.com/`
   },
   devServer : {
     hot: true,
