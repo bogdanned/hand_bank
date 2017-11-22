@@ -53,7 +53,7 @@ export default {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, "public"),
     disableHostCheck: true,
-    port,
+    port: 5000,
     overlay: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
