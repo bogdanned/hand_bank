@@ -1,26 +1,40 @@
 export default[
   {
-    name : "Service 1",
-    id: "",
+    name : "Shower Installation",
+    quality : "Luxury",
+    id : "shower_tray",
     products : [
       {
-        name: "SuprapurCompact-O-KUB",
-        price: "3454 euro",
-        manufacturer: "Junkers"
+        name: "Shower tap",
+        price: "139,99",
+        producer: "HomeLavade"
+      }, {
+        name: "Shower cabin",
+        price: "269,00",
+        producer: "Bernstein"
+      }, {
+        name: "Shower tray",
+        price: "469,00",
+        producer: "Bernstein"
+      }, {
+        name: "Rain Shower",
+        price: "53,50",
+        producer: "Bernstein"
       }
     ]
   }, {
-    name : "Service 2",
+    name : "Bathtub",
+    quality : "Luxory",
+    id : "bath",
     products : [
       {
-        name: "Vitoladens 300-C",
-        price: "345423 euro",
-        manufacturer: "Viessmann",
-        fuel: "heating oil"
+        name: "Luna Stone",
+        price: "1594,00",
+        producer: "Bernstein"
       }, {
-        name: "product 123",
-        price: "345423 euro",
-        manufacturer: "Junkers"
+        name: "Tap",
+        price: "39,90",
+        producer: "Oskar"
       }
     ]
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 var FontAwesome = require('react-fontawesome');
 import styled from "styled-components"
+import {Link} from 'react-router-dom'
 
 const flow = {
   name: "flow",
@@ -62,25 +63,25 @@ const flow = {
           name: "sfsdfsdfsdfsdf"
         }
       ]
-    }, {
-      title: "choose something 4",
-      type: "end",
-      name: "heating 4",
-      options: [
+    },
+    {
+      title: "New Customer",
+      type: "form",
+      fields: [
         {
-          label: "Option 1234234",
-          iconName: "rocket",
-          name: "sdfsdfsdfsdf"
-        }, {
-          label: "Option 2",
-          iconName: "rocket",
-          name: "sdfsdfsdfsdf"
-        }, {
-          label: "Option 3234324",
-          iconName: "rocket",
-          name: "sdfsdfljkugjsdf"
+          label: "Name",
+          name: "customer_name"
+        },
+        {
+          label: "Surname",
+          name: "customer_surname"
         }
       ]
+    },
+    {
+      title: "Send the bill ",
+      type: "end",
+      name: "heating 4",
     }
   ]
 }
@@ -108,6 +109,34 @@ const OptionWrapper = styled.button `
   }
 `
 
+
+class CustomerForm extends React.Component{
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this)
+  }
+  onClick(e) {
+    e.preventDefault()
+    this.props.onClick("contact")
+  }
+  render(){
+    let fields = this.props.step.fields.map(f => (
+      <div>
+        <p>{f.label}</p>
+        <input></input>
+      </div>
+    ))
+    return(
+      <div>
+        <form>
+          {fields}
+        </form>
+        <button onClick={this.onClick}>Next</button>
+      </div>
+    )
+  }
+}
+
 class Option extends React.Component {
   constructor(props) {
     super(props);
@@ -125,6 +154,16 @@ class Option extends React.Component {
       <OptionWrapper key={label} onClick={this.onClick}>
         <FontAwesome name={iconName} size='4x'/> {label}
       </OptionWrapper>
+    )
+  }
+}
+
+class End extends React.Component{
+  render(){
+    return(
+      <div>
+        <Link to="orders">To the orders</Link>
+      </div>
     )
   }
 }
@@ -152,13 +191,15 @@ export default class FlowComponent extends React.Component {
 
   render() {
     let step = flow.steps[this.state.step]
-    let options = step.options.map(o => (
+    let options = step.type == "options" && step.options.map(o => (
       <Option key={o.name} option={o} onClick={this.nextStep}></Option>
     ))
     return (
       <FlowContainer>
         <h3>{step.title}</h3>
-        <OptionsContainer>{options}</OptionsContainer>
+        {step && step.type == "options" && <OptionsContainer>{options}</OptionsContainer>}
+        {step && step.type == "form" && <CustomerForm step={step} onClick={this.nextStep}/>}
+        {step && step.type == "end" && <End step={step}/>}
       </FlowContainer>
     );
   }
