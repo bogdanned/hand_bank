@@ -43,6 +43,7 @@
     "express-reloadable": "^2.0.2",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
+    "lodash": "^4.17.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-hot-loader": "^3.1.3",
