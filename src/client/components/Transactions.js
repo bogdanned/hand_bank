@@ -5,7 +5,6 @@ import Header from './Header'
 
 
 const Root = styled.div`
-
 `
 
 export default() => {

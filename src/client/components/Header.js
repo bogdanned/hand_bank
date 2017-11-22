@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Root = styled.div`
   padding: 0.5rem;
+  height: 60px;
 `
 
 export default({title}) => (
