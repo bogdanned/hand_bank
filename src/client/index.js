@@ -13,7 +13,8 @@ import App from './components/app.js'
 const theme = {
   brandColor: "#2ecc71",
   primaryColor: "#27ae60",
-  secondaryColor: "#86cca4"
+  secondaryColor: "#86cca4",
+  terciaryColor: "#2980b9"
 }
 
 const renderApp = () => {
