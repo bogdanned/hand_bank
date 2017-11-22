@@ -1,0 +1,19 @@
+{
+  "name": "hand_bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogdanned/hand_bank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bogdanned/hand_bank/issues"
+  },
+  "homepage": "https://github.com/bogdanned/hand_bank#readme"
+}
