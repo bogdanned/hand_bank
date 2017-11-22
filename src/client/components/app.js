@@ -10,6 +10,7 @@ import Transactions from './Transactions'
 
 const Root = styled.div`
   display: flex;
+  flex-direction: row;
 `
 const Sidebar = styled.div`
   width: 300px;
@@ -18,7 +19,6 @@ const Sidebar = styled.div`
 `
 
 const Content = styled.div`
-  width: 100%;
 `
 
 const Menu = styled.div`
