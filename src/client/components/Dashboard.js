@@ -1,9 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
 
+export default({match}) => {
+  console.log(match.params)
+  return <div>
 
-export default() => (
-  <div>
-    Main Dashboard
-  </div>
-)
+    </div>
+}

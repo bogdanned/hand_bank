@@ -4,6 +4,9 @@ import data from '../data/offer'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
 import Dashboard from './Dashboard'
+import Orders from './Orders'
+import Suppliers from './Suppliers'
+import Transactions from './Transactions'
 
 const Root = styled.div`
   display: flex;
@@ -23,39 +26,42 @@ const Menu = styled.div`
 `
 
 const MenuItem = styled(Link)`
-  padding: 1rem 1rem 1rem 1rem;
   color: white;
-  cursor: pointer;
   text-decoration: none;
-  color: white;
+`
+
+const Label = styled.p`
+  cursor: pointer;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 1.6rem;
   :hover {
     background-color: ${props => props.theme.primaryColor};
   };
-  p {
-    font-size: 1.6rem;
-  };
 `
 
-export default () => (
-  <Root>
-    <Sidebar>
-      <Menu>
-        <MenuItem to='/home'>
-          <p>Home</p>
-        </MenuItem>
-        <MenuItem to='/orders'>
-          <p>Orders</p>
-        </MenuItem>
-        <MenuItem to='/suppliers'>
-          <p>Suppliers</p>
-        </MenuItem>
-        <MenuItem to='/transactions'>
-          <p>Transactions</p>
-        </MenuItem>
-      </Menu>
-    </Sidebar>
-    <Content>
-      <Route path="/home" component={Dashboard}/>
-    </Content>
-  </Root>
-)
+export default () => {
+  return  <Root>
+      <Sidebar>
+        <Menu>
+          <MenuItem to='/home'>
+            <Label>Home</Label>
+          </MenuItem>
+          <MenuItem to='/orders'>
+            <Label>Orders</Label>
+          </MenuItem>
+          <MenuItem to='/suppliers'>
+            <Label>Suppliers</Label>
+          </MenuItem>
+          <MenuItem to='/transactions'>
+            <Label>Transactions</Label>
+          </MenuItem>
+        </Menu>
+      </Sidebar>
+      <Content>
+        <Route path="/home" component={Dashboard}/>
+        <Route path="/orders" component={Orders}/>
+        <Route path="/suppliers" component={Suppliers}/>
+        <Route path="transactions" component={Transactions} />
+      </Content>
+    </Root>
+}
