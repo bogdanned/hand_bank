@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import CompressionWebpackPlugin from "compression-webpack-plugin"
 import AssetsPlugin from 'assets-webpack-plugin'
 
-const isDev = true,
+const isDev = true
 
 const vendor = [
   "react",
