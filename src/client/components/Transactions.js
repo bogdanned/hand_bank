@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Header from './Header'
+
+
 const Root = styled.div`
 
 `
 
-const Header = styled.div`
-  padding: 0.5rem;
-`
-
 export default() => {
   return <Root>
-    <Header><h1>Transactions</h1></Header>
+    <Header title={"Transactions"} />
   </Root>
 }

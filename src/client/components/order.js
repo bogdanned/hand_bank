@@ -26,11 +26,11 @@ const ServiceRoot = styled.div`
 `
 
 
-const Product = ({product: {name, price, manufacturer}}) => (
+const Product = ({product: {name, price, producer}}) => (
   <ProdRoot>
     <h6>{`${name}`}</h6>
     <h6>{`Price: ${price}`}</h6>
-    <h6>{`Manufacturer: ${manufacturer}`}</h6>
+    <h6>{`Manufacturer: ${producer}`}</h6>
   </ProdRoot>
 )
 

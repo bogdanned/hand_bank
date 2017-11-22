@@ -8,5 +8,5 @@ export default ({services}) => {
         productsAll.push(p)
       })
   })
-  return _.groupBy(productsAll, 'manufacturer')
+  return _.groupBy(productsAll, 'producer')
 }

@@ -11,14 +11,27 @@ import Orders from './Orders'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
+
 const Root = styled.div`
   display: flex;
   flex-direction: row;
 `
 
+const Footer = styled.div`
+  padding: 1rem 2rem;
+  display: flex;
+  font-size: 1.2rem;
+  color: white;
+  border-top: 1px solid white;
+`
+
 const Sidebar = styled.div`
   width: 300px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
   background-color: ${props => props.theme.brandColor};
 `
 
@@ -26,7 +39,8 @@ const Content = styled.div`
 `
 
 const Menu = styled.div`
-  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
 `
 
 const MenuItem = styled(Link)`
@@ -36,36 +50,50 @@ const MenuItem = styled(Link)`
 
 const Label = styled.p`
   cursor: pointer;
-  padding: 1rem 1rem 1rem 1rem;
+  text-transform: uppercase;
+  padding: 1rem 1rem 1rem 2rem;
   font-size: 1.6rem;
   :hover {
     background-color: ${props => props.theme.primaryColor};
   };
 `
 
+const Logo = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+  border-bottom: 2px solid rgba(255,255,255, 0.7);
+`
+
 export default () => (
   <Root>
     <Sidebar>
       <Menu>
-        <MenuItem to='/home'>
-          <p>Home</p>
+        <Logo><img src="logo.png" height="42" width="42"/></Logo>
+        <MenuItem to='/'>
+          <Label>Dashboard</Label>
         </MenuItem>
         <MenuItem to='/orders'>
-          <p>Orders</p>
+          <Label>Orders</Label>
         </MenuItem>
         <MenuItem to='/suppliers'>
-          <p>Suppliers</p>
+          <Label>Suppliers</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
-          <p>Transactions</p>
+          <Label>Transactions</Label>
         </MenuItem>
         <MenuItem to='/flow'>
-          <p>Create Order</p>
+          <Label>Create Order</Label>
         </MenuItem>
       </Menu>
+      <Footer>
+        <p>Bad Mueler Berlin</p>
+      </Footer>
     </Sidebar>
     <Content>
-      <Route path="/home" component={Dashboard}/>
+      <Route exact path="/" component={Dashboard}/>
       <Route path="/orders" component={Orders}/>
       <Route path="/suppliers" component={Suppliers}/>
       <Route path="/transactions" component={Transactions}/>

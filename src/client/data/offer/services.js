@@ -1,46 +1,40 @@
 export default[
   {
     name : "Shower Installation",
-    quality: "Luxury",
-    id: "shower",
+    quality : "Luxury",
+    id : "shower_tray",
     products : [
       {
-        id: "shower_tap",
-        name: "Shower Tap",
-        price: "3454",
-        manufacturer: "Junkers"
-      },
-      {
-        id: "shower_screen",
-        name: "Shower Screen",
-        price: "3454",
-        manufacturer: "Junkers"
-      },
-      {
-        id: "shower_tray",
-        name: "Shower Tray",
-        price: "3454",
-        manufacturer: "Junkers"
-      },
-      {
-        name: "Shower Plumbing",
-        price: "3454",
-        manufacturer: "Junkers"
+        name: "Shower tap",
+        price: "139,99",
+        producer: "HomeLavade"
+      }, {
+        name: "Shower cabin",
+        price: "269,00",
+        producer: "Bernstein"
+      }, {
+        name: "Shower tray",
+        price: "469,00",
+        producer: "Bernstein"
+      }, {
+        name: "Rain Shower",
+        price: "53,50",
+        producer: "Bernstein"
       }
     ]
   }, {
-    name : "Bidet Installation",
-    quality: "Normal",
+    name : "Bathtub",
+    quality : "Luxory",
+    id : "bath",
     products : [
       {
-        name: "Bidet Seat",
-        price: "345423 euro",
-        manufacturer: "Viessmann",
-        fuel: "heating oil"
+        name: "Luna Stone",
+        price: "1594,00",
+        producer: "Bernstein"
       }, {
-        name: "Bidet ",
-        price: "345423 euro",
-        manufacturer: "Junkers"
+        name: "Tap",
+        price: "39,90",
+        producer: "Oskar"
       }
     ]
   }
