@@ -9,7 +9,7 @@ import AssetsPlugin from 'assets-webpack-plugin'
 console.log(process.env.isDev, 'is dev')
 
 const isDev = process.env.isDev || false,
-      port=5000
+  port = 5000
 
 const vendor = [
   "react",
@@ -50,8 +50,12 @@ export default {
     },
   output : {
     path: path.join(__dirname, "public"),
-    filename: isDev ? 'bundle-[name].js': 'bundle-[name]-[hash].js',
-    publicPath: isDev ? `http://localhost:${port}/` : `https://afternoon-gorge-49908.herokuapp.com/`
+    filename: isDev
+      ? 'bundle-[name].js'
+      : 'bundle-[name]-[hash].js',
+    publicPath: isDev
+      ? `http://localhost:${port}/`
+      : `https://afternoon-gorge-49908.herokuapp.com/`
   },
   devServer : {
     hot: true,
@@ -100,6 +104,15 @@ export default {
         loader: [
           "style-loader", 'css-loader?' + qs.stringify({modules: false, importLoaders: 1, localIdentName: '[path][name]-[local]'})
         ].join("!")
+      },
+      {
+        test : /\.(jpg|png|svg)$/,
+        use : {
+          loader: "file-loader",
+          options: {
+            name: "[path][name].[hash].[ext]"
+          }
+        }
       }
     ]
   },
