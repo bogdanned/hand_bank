@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bogdanned/hand_bank/issues"
   },
-  "homepage": "https://github.com/bogdanned/hand_bank#readme"
+  "homepage": "https://github.com/bogdanned/hand_bank#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
