@@ -9,12 +9,7 @@ import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
 const Root = styled.div`
-  display: absolute;
-  top: 0px;
-  left: 0px;
-  heihgt: 100%;
-  background-color: ${props => props.theme.brandColor};
-
+  display: flex;
 `
 const Sidebar = styled.div`
   width: 300px;
@@ -44,31 +39,15 @@ const Label = styled.p`
   };
 `
 
-      <Menu>
-        <MenuItem to='/home'>
-          <p>Home</p>
-        </MenuItem>
-        <MenuItem to='/orders'>
-          <p>Orders</p>
-        </MenuItem>
-        <MenuItem to='/suppliers'>
-          <p>Suppliers</p>
-        </MenuItem>
-        <MenuItem to='/transactions'>
-          <p>Transactions</p>
-        </MenuItem>
-      </Menu>
-    </Sidebar>
-    <Content>
-      <Route path="/home" component={Dashboard}/>
-    </Content>
-  </Root>
-)
-
+const Logo = styled.div`
+`
 
 export default () => {
   return  <Root>
       <Sidebar>
+        <Logo>
+          <img src="./logo.png" height="42" width="42"/>
+        </Logo>
         <Menu>
           <MenuItem to='/home'>
             <Label>Home</Label>
@@ -88,7 +67,7 @@ export default () => {
         <Route path="/home" component={Dashboard}/>
         <Route path="/orders" component={Orders}/>
         <Route path="/suppliers" component={Suppliers}/>
-        <Route path="transactions" component={Transactions} />
+        <Route path="/transactions" component={Transactions} />
       </Content>
     </Root>
 }
