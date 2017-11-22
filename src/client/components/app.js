@@ -76,21 +76,18 @@ export default () => (
   <Root>
     <Sidebar>
       <Menu>
-        <Logo><img src="logo.png" height="60" width="42"/></Logo>
-        <MenuItem to='/'>
-          <Label>Dashboard</Label>
+        <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
+        <MenuItem to='/flow'>
+          <Label>New Order</Label>
         </MenuItem>
         <MenuItem to='/orders'>
           <Label>Orders</Label>
         </MenuItem>
+        <MenuItem to='/'>
+          <Label>Dashboard</Label>
+        </MenuItem>
         <MenuItem to='/suppliers'>
           <Label>Suppliers</Label>
-        </MenuItem>
-        <MenuItem to='/transactions'>
-          <Label>Transactions</Label>
-        </MenuItem>
-        <MenuItem to='/flow'>
-          <Label>Create Order</Label>
         </MenuItem>
       </Menu>
       <Footer>
