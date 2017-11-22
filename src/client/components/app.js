@@ -24,16 +24,17 @@ const MenuItem = styled.div`
 
 export default () => (
   <Root>
+    <h1>test</h1>
     {JSON.stringify(data)}
     <Sidebar>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Cashflowd ssPredssssicdddtisson</p>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Cashflowasdasd Pasdasdasdredaasdasdsdasdicddtion</p>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Cashflow cash</p>
       </MenuItem>
     </Sidebar>
     <Content>

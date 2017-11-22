@@ -6,7 +6,9 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import CompressionWebpackPlugin from "compression-webpack-plugin"
 import AssetsPlugin from 'assets-webpack-plugin'
 
-const isDev = true,
+console.log(process.env.isDev, 'is dev')
+
+const isDev = process.env.isDev || false,
       port=5000
 
 const vendor = [
@@ -33,6 +35,7 @@ export default {
       app: [
         'babel-polyfill',
         'react-hot-loader/patch',
+        `webpack-dev-server/client?http://localhost:${port}`,
         'webpack/hot/only-dev-server',
         path.join(__dirname, '/src/client/index.js')
       ],
@@ -48,7 +51,7 @@ export default {
   output : {
     path: path.join(__dirname, "public"),
     filename: isDev ? 'bundle-[name].js': 'bundle-[name]-[hash].js',
-    publicPath: `https://afternoon-gorge-49908.herokuapp.com/`
+    publicPath: isDev ? `http://localhost:${port}/` : `https://afternoon-gorge-49908.herokuapp.com/`
   },
   devServer : {
     hot: true,
@@ -73,8 +76,8 @@ export default {
   },
   plugins : [
     new webpack.optimize.CommonsChunkPlugin({name: "vendor", minChunks: Infinity}),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "index.html.ejs",
