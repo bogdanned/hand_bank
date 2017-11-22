@@ -1,3 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default () => (<h1>React test</h1>)
+const Root = styled.div`
+  padding: 3rem;
+`
+
+export default () => (
+  <Root>
+    <h1>Welcome to Handworks!</h1>
+  </Root>
+)
