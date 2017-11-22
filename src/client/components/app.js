@@ -93,7 +93,7 @@ export default () => (
       </Footer>
     </Sidebar>
     <Content>
-      <Route path="/" component={Dashboard}/>
+      <Route exact path="/" component={Dashboard}/>
       <Route path="/orders" component={Orders}/>
       <Route path="/suppliers" component={Suppliers}/>
       <Route path="/transactions" component={Transactions}/>
