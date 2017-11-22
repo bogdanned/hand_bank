@@ -19,7 +19,7 @@ const theme = {
 
 const renderApp = () => {
   render(
-    <ThemeProvider theme=“theme”>
+    <ThemeProvider theme={theme}>
       <App></App>
     </ThemeProvider>
     , document.getElementById("app"))
