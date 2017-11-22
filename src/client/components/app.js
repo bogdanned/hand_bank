@@ -7,9 +7,17 @@ import Test from './test'
 import Dashboard from './Dashboard'
 import Flow from './flow'
 import data from '../data/offer'
+import Orders from './Orders'
+import Suppliers from './Suppliers'
+import Transactions from './Transactions'
 
 const Root = styled.div`
-  display: flex;
+  display: absolute;
+  top: 0px;
+  left: 0px;
+  heihgt: 100%;
+  background-color: ${props => props.theme.brandColor};
+
 `
 
 const Sidebar = styled.div`
@@ -27,21 +35,21 @@ const Menu = styled.div`
 `
 
 const MenuItem = styled(Link)`
-  padding: 1rem 1rem 1rem 1rem;
   color: white;
-  cursor: pointer;
   text-decoration: none;
-  color: white;
+`
+
+const Label = styled.p`
+  cursor: pointer;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 1.6rem;
   :hover {
     background-color: ${props => props.theme.primaryColor};
   };
-  p {
-    font-size: 1.6rem;
-  };
 `
 
-const wrappedDash = () => (
-  <div>
+export default () => (
+  <Root>
     <Sidebar>
       <Menu>
         <MenuItem to='/home'>
@@ -59,15 +67,12 @@ const wrappedDash = () => (
       </Menu>
     </Sidebar>
     <Content>
-      <Dashboard></Dashboard>
+      <Route path="/home" component={Dashboard}/>
+      <Route path="/orders" component={Orders}/>
+      <Route path="/suppliers" component={Suppliers}/>
+      <Route path="/transactions" component={Transactions}/>
+      <Route path="/flow" component={Flow}/>
+      <Route path="/test" component={Test}/>
     </Content>
-  </div>
-)
-
-export default () => (
-  <Root>
-    <Route path="/home" component={wrappedDash}/>
-    <Route path="/flow" component={Flow}/>
-    <Route path="/test" component={Test}/>
   </Root>
 )
