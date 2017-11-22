@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Header from './Header'
 import LineChart from './LineChart'
+import PieChart from './PieChart'
 
 const Root = styled.div`
 
@@ -17,6 +18,7 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 `
 
 export default() => {
@@ -24,10 +26,16 @@ export default() => {
     <Header title={"Dashboard"} />
     <Dashboard>
       <Row>
-        <LineChart />
+        <div>
+          <p>Revenue v.s. Cash</p>
+          <LineChart />
+        </div>
+        <div>
+          <p>Revenue by source</p>
+          <PieChart />
+        </div>
       </Row>
       <Row>
-        <LineChart />
       </Row>
     </Dashboard>
   </Root>
