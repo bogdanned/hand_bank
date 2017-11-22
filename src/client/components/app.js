@@ -57,6 +57,7 @@ const Label = styled.p`
   text-transform: uppercase;
   padding: 1rem 1rem 1rem 2rem;
   font-size: 1.6rem;
+  background-color: ${props => props.active ? props.theme.primaryColor : "inherit"};
   :hover {
     background-color: ${props => props.theme.primaryColor};
     color: white;
@@ -72,25 +73,27 @@ const Logo = styled.div`
   border-bottom: 2px solid rgba(255,255,255, 0.7);
 `
 
-export default () => (
-  <Root>
+export default (props) => {
+  let locations = window.location.href.split('/')
+  console.log()
+  return <Root>
     <Sidebar>
       <Menu>
         <Logo><img src="logo.png" height="60" width="42"/></Logo>
         <MenuItem to='/'>
-          <Label>Dashboard</Label>
+          <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
         </MenuItem>
         <MenuItem to='/orders'>
-          <Label>Orders</Label>
+          <Label active={locations[locations.length - 1] == "orders" ? true : false}>Orders</Label>
         </MenuItem>
         <MenuItem to='/suppliers'>
-          <Label>Suppliers</Label>
+          <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
-          <Label>Transactions</Label>
+          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Transactions</Label>
         </MenuItem>
         <MenuItem to='/flow'>
-          <Label>Create Order</Label>
+          <Label active={locations[locations.length - 1] == "flow" ? true : false}>Create Order</Label>
         </MenuItem>
       </Menu>
       <Footer>
@@ -107,4 +110,4 @@ export default () => (
       <Route path="/test" component={Test}/>
     </Content>
   </Root>
-)
+}
