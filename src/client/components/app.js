@@ -48,19 +48,19 @@ export default () => (
     <Sidebar>
       <Menu>
         <MenuItem to='/home'>
-          <p>Home</p>
+          <Label>Dashboard</Label>
         </MenuItem>
         <MenuItem to='/orders'>
-          <p>Orders</p>
+          <Label>Orders</Label>
         </MenuItem>
         <MenuItem to='/suppliers'>
-          <p>Suppliers</p>
+          <Label>Suppliers</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
-          <p>Transactions</p>
+          <Label>Transactions</Label>
         </MenuItem>
         <MenuItem to='/flow'>
-          <p>Create Order</p>
+          <Label>Create Order</Label>
         </MenuItem>
       </Menu>
     </Sidebar>
