@@ -27,7 +27,7 @@ const Footer = styled.div`
 `
 
 const Sidebar = styled.div`
-  min-width: 250px;
+  min-width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
