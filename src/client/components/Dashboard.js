@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Header from './Header'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
+import BarChart from './BarChart'
 
 const Root = styled.div`
 
@@ -56,7 +57,7 @@ export default() => {
         </Metric>
         <Metric>
           <MetricHeader>Revenue by source</MetricHeader>
-          <Content><PieChart /></Content>
+          <Content><BarChart /></Content>
           <MetricFooter></MetricFooter>
         </Metric>
       </Row>
