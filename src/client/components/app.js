@@ -90,10 +90,10 @@ export default (props) => {
           <Label active={locations[locations.length - 1] == "offers" ? true : false}>Offers</Label>
         </MenuItem>
         <MenuItem to='/suppliers'>
-          <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers</Label>
+          <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers Payments</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
-          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Transactions</Label>
+          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Forecasting</Label>
         </MenuItem>
       </Menu>
       <Footer>

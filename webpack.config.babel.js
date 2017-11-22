@@ -5,11 +5,11 @@ import reloadable from "express-reloadable"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import CompressionWebpackPlugin from "compression-webpack-plugin"
 import AssetsPlugin from 'assets-webpack-plugin'
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-console.log(process.env.isDev, 'is dev')
 
 const isDev = process.env.isDev || false,
-  port = 5000
+      port = 5000
 
 const vendor = [
   "react",
@@ -89,8 +89,8 @@ export default {
     }),
     new CompressionWebpackPlugin({asset: "[path].gz[query]", algorithm: "gzip", test: /\.(js|html)$/, threshold: 10240, minRatio: 0.8}),
     new AssetsPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new UglifyJSPlugin()
     // do not emit compiled assets that include errors
   ],
   module : {

@@ -15,12 +15,12 @@ export default () => (
     	<BarChart width={500} height={350} data={data}
             margin={{top: 20, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="name"/>
-       <YAxis yAxisId="left" orientation="left" stroke="#8884d8"/>
-       <YAxis yAxisId="right" orientation="right" stroke="#82ca9d"/>
+       <YAxis yAxisId="left" orientation="left" stroke="#2980b9"/>
+       <YAxis yAxisId="right" orientation="right" stroke="#2ecc71"/>
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
-       <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+       <Bar yAxisId="left" dataKey="pv" fill="#2980b9" />
+       <Bar yAxisId="right" dataKey="uv" fill="#2ecc71" />
       </BarChart>
 )

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/webpack-dev-server",
-    "prod": "./node_modules/webpack/bin/webpack.js -p --progress && node src/server/index.js"
+    "prod": "./node_modules/webpack/bin/webpack.js --progress && node src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -67,6 +67,7 @@
   "devDependencies": {
     "file-loader": "^1.1.5",
     "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "^0.6.2"
   }
 }
