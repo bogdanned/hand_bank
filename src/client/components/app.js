@@ -11,6 +11,7 @@ import data from '../data/offer'
 const Root = styled.div`
   display: flex;
 `
+
 const Sidebar = styled.div`
   width: 300px;
   height: 100vh;
@@ -39,8 +40,8 @@ const MenuItem = styled(Link)`
   };
 `
 
-export default () => (
-  <Root>
+const wrappedDash = () => (
+  <div>
     <Sidebar>
       <Menu>
         <MenuItem to='/home'>
@@ -58,9 +59,15 @@ export default () => (
       </Menu>
     </Sidebar>
     <Content>
-      <Route path="/home" component={Dashboard}/>
-      <Route path="/flow" component={Flow}/>
+      <Dashboard></Dashboard>
     </Content>
-    <Test></Test>
+  </div>
+)
+
+export default () => (
+  <Root>
+    <Route path="/home" component={wrappedDash}/>
+    <Route path="/flow" component={Flow}/>
+    <Route path="/test" component={Test}/>
   </Root>
 )
