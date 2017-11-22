@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import data from '../data/offer'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
+import Dashboard from './Dashboard'
 
 const Root = styled.div`
   display: flex;
 `
 const Sidebar = styled.div`
-  width: 200px;
+  width: 300px;
   height: 100vh;
   background-color: ${props => props.theme.brandColor};
 `
@@ -18,30 +19,38 @@ const Content = styled.div`
 `
 
 const Menu = styled.div`
-
+  margin-top: 8rem;
 `
 
-const MenuItem = styled.div`
-  padding: 0.5rem;
+const MenuItem = styled(Link)`
+  padding: 1rem 1rem 1rem 1rem;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
   :hover {
     background-color: ${props => props.theme.primaryColor};
-  }
+  };
+  p {
+    font-size: 1.6rem;
+  };
 `
 
 export default () => (
   <Root>
     <Sidebar>
       <Menu>
-        <MenuItem>
-          <Link to='/home'><p>Home</p></Link>
+        <MenuItem to='/home'>
+          <p>Home</p>
         </MenuItem>
-        <MenuItem>
-          <Link to='/orders'><p>Orders</p></Link>
+        <MenuItem to='/orders'>
+          <p>Orders</p>
         </MenuItem>
-        <MenuItem>
-          <Link to='/suppliers'><p></p></Link>
+        <MenuItem to='/suppliers'>
+          <p>Suppliers</p>
+        </MenuItem>
+        <MenuItem to='/transactions'>
+          <p>Transactions</p>
         </MenuItem>
       </Menu>
     </Sidebar>
