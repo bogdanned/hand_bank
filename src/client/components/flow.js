@@ -2,64 +2,90 @@ import React from 'react'
 var FontAwesome = require('react-fontawesome');
 import styled from "styled-components"
 import {Link} from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
+import './styles.css';
+
+const Fade = ({ children, ...props }) => (
+  <CSSTransition
+    {...props}
+    timeout={1000}
+    classNames="fade"
+  >
+    {children}
+  </CSSTransition>
+);
 
 const flow = {
   name: "flow",
   steps: [
     {
-      title: "choose something 1",
+      title: "Is there a bath tube needed?",
       type: "options",
       name: "heating_one",
       options: [
         {
-          label: "Option 1",
-          iconName: "bath",
-          name: "asfsdf"
-        }, {
-          label: "Option 2",
-          iconName: "thermometer-quarter",
-          name: "asdsdfsdf"
-        }, {
-          label: "Option 3",
+          label: "Yes",
           iconName: "shower",
-          name: "sdfsdfsdf"
-        }
-      ]
-    }, {
-      title: "choose something 2",
-      type: "options",
-      name: "heating 2",
-      options: [
-        {
-          label: "Option 1234234",
-          iconName: "rocket",
           name: "sdfsdfdsf"
         }, {
-          label: "Option 2",
-          iconName: "rocket",
+          label: "No",
+          iconName: "ban",
           name: "sdfsdf"
-        }, {
-          label: "Option 3234324",
-          iconName: "rocket",
-          name: "sdfsdfsdf"
         }
       ]
-    }, {
-      title: "choose something 2",
+    },
+    {
+      title: "Quality of the Bathroom?",
       type: "options",
       name: "heating 3",
       options: [
         {
-          label: "Option 1234234",
-          iconName: "rocket",
+          label: "Basic",
+          iconName: "cogs",
           name: "sdfsdfsdf"
         }, {
-          label: "Option 2",
-          iconName: "rocket",
+          label: "Premium",
+          iconName: "check-circle-o",
           name: "sdfsdfsdfsdf"
         }, {
-          label: "Option 3234324",
-          iconName: "rocket",
+          label: "Luxury",
+          iconName: "heart",
+          name: "sfsdfsdfsdfsdf"
+        }
+      ]
+    },
+    {
+      title: "Is a shower needed?",
+      type: "options",
+      name: "heating 2",
+      options: [
+        {
+          label: "Yes",
+          iconName: "shower",
+          name: "sdfsdfdsf"
+        }, {
+          label: "No",
+          iconName: "ban",
+          name: "sdfsdf"
+        }
+      ]
+    }, {
+      title: "Quality of the Shower?",
+      type: "options",
+      name: "heating 3",
+      options: [
+        {
+          label: "Basic",
+          iconName: "cogs",
+          name: "sdfsdfsdf"
+        }, {
+          label: "Premium",
+          iconName: "check-circle-o",
+          name: "sdfsdfsdfsdf"
+        }, {
+          label: "Luxury",
+          iconName: "heart",
           name: "sfsdfsdfsdfsdf"
         }
       ]
@@ -87,7 +113,11 @@ const flow = {
 }
 
 const FlowContainer = styled.div `
-
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 `
 
 const OptionsContainer = styled.div `
@@ -99,12 +129,15 @@ const OptionWrapper = styled.button `
   margin: 10px;
   width: 200px;
   height: 200px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  color: #2ecc71;
+  border-color: #2ecc71;
   &:hover{
-    background: grey;
+    background: #2ecc71;
     color: white;
   }
 `
@@ -196,10 +229,22 @@ export default class FlowComponent extends React.Component {
     ))
     return (
       <FlowContainer>
-        <h3>{step.title}</h3>
-        {step && step.type == "options" && <OptionsContainer>{options}</OptionsContainer>}
-        {step && step.type == "form" && <CustomerForm step={step} onClick={this.nextStep}/>}
-        {step && step.type == "end" && <End step={step}/>}
+        <h1>Customer Order</h1>
+        <h5>{step.title}</h5>
+        <TransitionGroup className='todo-list'>
+          {step && step.type == "options" &&
+          <Fade>
+            <OptionsContainer>{options}</OptionsContainer>
+          </Fade>}
+          {step && step.type == "form" &&
+          <Fade>
+            <CustomerForm step={step} onClick={this.nextStep}/>
+          </Fade>}
+          {step && step.type == "end" &&
+          <Fade>
+            <End step={step}/>
+          </Fade>}
+        </TransitionGroup>
       </FlowContainer>
     );
   }
