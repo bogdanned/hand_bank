@@ -9,9 +9,18 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 import App from './components/app.js'
 
+
+const theme = {
+  brandColor: "#27AE61",
+  primaryColor: "#F5F5F5",
+  secondaryColor: "white"
+}
+
 const renderApp = () => {
   render(
-    <App></App>
+    <ThemeProvider theme={theme}>
+      <App></App>
+    </ThemeProvider>
     , document.getElementById("app"))
 }
 
