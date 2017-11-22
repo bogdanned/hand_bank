@@ -11,16 +11,17 @@ import App from './components/app.js'
 
 
 const theme = {
-  brandColor: "#27ae60",
-  primaryColor: "#2ecc71",
-  secondaryColor: "#ffffff"
+  brandColor: "#2ecc71",
+  primaryColor: "#27ae60",
 }
 
 const renderApp = () => {
   render(
-    <ThemeProvider theme={theme}>
-      <App></App>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <App></App>
+      </ThemeProvider>
+    </Router>
     , document.getElementById("app"))
 }
 

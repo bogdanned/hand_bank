@@ -3,6 +3,7 @@
   "plugins": [
     "babel-plugin-transform-object-rest-spread",
     "transform-runtime",
+    "react-hot-loader/babel",
     ["styled-components", {"minify": false}]
   ]
 }
