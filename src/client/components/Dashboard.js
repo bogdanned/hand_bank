@@ -10,7 +10,7 @@ const Root = styled.div`
 `
 
 const Dashboard =styled.div`
-  padding: 2rem;
+  padding: 1rem;
 `
 
 const Row = styled.div`
@@ -21,21 +21,37 @@ const Row = styled.div`
   margin-bottom: 2rem;
 `
 
+const Metric = styled.div`
+  :first-child {
+    margin-right: 1rem;
+  }
+`
+const MetricHeader = styled.div`
+  background-color: ${props => props.theme.primaryColor};
+  padding: 1rem;
+  color: white;
+`
+
+const MetricFooter = styled.div`
+  padding: 1rem;
+  background-color: ${props => props.theme.primaryColor};
+`
+
 export default() => {
   return <Root>
     <Header title={"Dashboard"} />
     <Dashboard>
       <Row>
-        <div>
-          <p>Revenue v.s. Cash</p>
+        <Metric>
+          <MetricHeader>Revenue v.s. Cash</MetricHeader>
           <LineChart />
-        </div>
-        <div>
-          <p>Revenue by source</p>
+          <MetricFooter></MetricFooter>
+        </Metric>
+        <Metric>
+          <MetricHeader>Revenue by source</MetricHeader>
           <PieChart />
-        </div>
-      </Row>
-      <Row>
+          <MetricFooter></MetricFooter>
+        </Metric>
       </Row>
     </Dashboard>
   </Root>

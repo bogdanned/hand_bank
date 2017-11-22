@@ -17,7 +17,7 @@ const data02 = [{name: 'A1', value: 100},
                    {name: 'D2', value: 50}]
 
 export default () => (
-    	<PieChart width={600} height={300}>
+    	<PieChart width={500} height={300}>
         <Pie data={data01} cx={200} cy={200} outerRadius={60} fill="#8884d8"/>
         <Pie data={data02} cx={200} cy={200} innerRadius={70} outerRadius={90} fill="#82ca9d" label/>
        </PieChart>
