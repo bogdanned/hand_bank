@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom'
 import orderList from '../data/orders/orderList'
 import styled from 'styled-components'
 
+
+import Header from './Header'
+
 const Root = styled.div `
   width: 100%;
 `
@@ -23,7 +26,7 @@ const OrderItem = styled.div `
 
 const OrderLink = ({order}) => {
   return (
-    <Link to={`/orders/${order.id}`}>
+    <Link to={`/offers/${order.id}`}>
       <OrderItem>
         <p>Order: {order.id}</p>
         <p>Date: {order.date.toString()}</p>
@@ -39,7 +42,7 @@ export default() => {
   })
   return (
     <Root>
-      <h3>Orders</h3>
+      <Header title={"Orders"} />
       {items}
     </Root>
   )

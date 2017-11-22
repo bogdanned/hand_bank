@@ -54,7 +54,7 @@ export default class Orders extends React.Component {
     })
     let activeItem = false
     return <Root>
-      <Header title={"Orders"} />
+      <Header title={"Offers"} />
       <Menu pointing secondary>
         <Menu.Item name='Offer Details' active={this.state.order === ''} onClick={this.offer} />
         <Menu.Item name='Materials' active={this.state.order === 'man'} onClick={this.onClick} />

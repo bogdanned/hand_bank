@@ -3,12 +3,17 @@ var FontAwesome = require('react-fontawesome');
 import styled from "styled-components"
 import {Link} from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import Header from './Header'
 
 import './styles.css'
 
 import Back from './reusable/back'
 import Next from './reusable/next'
 
+
+const Root = styled.div`
+  width: 100%;
+`
 
 const Fade = ({ children, ...props }) => (
   <CSSTransition
@@ -340,39 +345,41 @@ export default class FlowComponent extends React.Component {
       <Option key={o.name} option={o} onClick={this.nextStep}></Option>
     ))
     return (
-      <FlowContainer>
-        <h1>Customer Order</h1>
-        <StepTitle>{step.title}</StepTitle>
-        <TransitionGroup className='todo-list'>
-          {step && step.type == "options" &&
-          <Fade>
-            <div>
-              <OptionsContainer>
-                {options}
-              </OptionsContainer>
-              <ButtonsContainer>
-                <Back onClick={this.back}></Back>
-                <Next onClick={this.nextStep}></Next>
-              </ButtonsContainer>
-            </div>
+      <Root>
+        <Header title={"New Offer"} />
+        <FlowContainer>
+          <StepTitle>{step.title}</StepTitle>
+          <TransitionGroup className='todo-list'>
+            {step && step.type == "options" &&
+            <Fade>
+              <div>
+                <OptionsContainer>
+                  {options}
+                </OptionsContainer>
+                <ButtonsContainer>
+                  <Back onClick={this.back}></Back>
+                  <Next onClick={this.nextStep}></Next>
+                </ButtonsContainer>
+              </div>
 
-          </Fade>}
-          {step && step.type == "form" &&
-          <Fade>
-            <div>
-              <CustomerForm step={step} onClick={this.nextStep}/>
-              <ButtonsContainer>
-                <Back onClick={this.back}></Back>
-                <Next onClick={this.nextStep}></Next>
-              </ButtonsContainer>
-            </div>
-          </Fade>}
-          {step && step.type == "end" &&
-          <Fade>
-            <End step={step}/>
-          </Fade>}
-        </TransitionGroup>
-      </FlowContainer>
+            </Fade>}
+            {step && step.type == "form" &&
+            <Fade>
+              <div>
+                <CustomerForm step={step} onClick={this.nextStep}/>
+                <ButtonsContainer>
+                  <Back onClick={this.back}></Back>
+                  <Next onClick={this.nextStep}></Next>
+                </ButtonsContainer>
+              </div>
+            </Fade>}
+            {step && step.type == "end" &&
+            <Fade>
+              <End step={step}/>
+            </Fade>}
+          </TransitionGroup>
+        </FlowContainer>
+      </Root>
     );
   }
 }

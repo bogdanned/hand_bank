@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Root = styled.div`
-  height: 60px;
+  height: 62px;
   display: flex;
   align-items: center;
   width: 100%;

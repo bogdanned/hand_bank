@@ -81,22 +81,19 @@ export default (props) => {
       <Menu>
         <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
         <MenuItem to='/flow'>
-          <Label>New Order</Label>
+          <Label>New Offer</Label>
         </MenuItem>
         <MenuItem to='/'>
           <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
         </MenuItem>
-        <MenuItem to='/orders'>
-          <Label active={locations[locations.length - 1] == "orders" ? true : false}>Orders</Label>
+        <MenuItem to='/offers'>
+          <Label active={locations[locations.length - 1] == "offers" ? true : false}>Offers</Label>
         </MenuItem>
         <MenuItem to='/suppliers'>
           <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
           <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Transactions</Label>
-        </MenuItem>
-        <MenuItem to='/flow'>
-          <Label active={locations[locations.length - 1] == "flow" ? true : false}>Create Order</Label>
         </MenuItem>
       </Menu>
       <Footer>
@@ -105,8 +102,8 @@ export default (props) => {
     </Sidebar>
     <Content>
       <Route exact path="/" component={Dashboard}/>
-      <Route exact path="/orders" component={OrderList}/>
-      <Route path="/orders/:id" component={Order}/>
+      <Route exact path="/offers" component={OrderList}/>
+      <Route path="/offers/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>
       <Route path="/transactions" component={Transactions}/>
       <Route path="/flow" component={Flow}/>
