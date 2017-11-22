@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import data from '../data/offer'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
 
@@ -25,14 +26,16 @@ const MenuItem = styled.div`
 
 export default () => (
   <Root>
+    <h1>test</h1>
+    {JSON.stringify(data)}
     <Sidebar>
       <MenuItem>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Cashflowasdasd Pasdasdasdredaasdasdsdasdicddtion</p>
       </MenuItem>
       <MenuItem>
-        <p>Cashflow Prediction</p>
+        <p>Cashflow cash</p>
       </MenuItem>
     </Sidebar>
     <Content>
