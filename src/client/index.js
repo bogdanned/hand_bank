@@ -3,7 +3,6 @@ import React from 'react'
 import {ThemeProvider} from 'styled-components'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {Provider} from "react-redux"
-import {ThemeProvider} from 'styled-components'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { reducer as reduxFormReducer } from 'redux-form'
 import {BrowserRouter as Router} from 'react-router-dom'
