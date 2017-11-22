@@ -12,12 +12,8 @@ import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
 const Root = styled.div`
-  display: absolute;
-  top: 0px;
-  left: 0px;
-  heihgt: 100%;
-  background-color: ${props => props.theme.brandColor};
-
+  display: flex;
+  flex-direction: row;
 `
 
 const Sidebar = styled.div`
@@ -27,7 +23,6 @@ const Sidebar = styled.div`
 `
 
 const Content = styled.div`
-  width: 100%;
 `
 
 const Menu = styled.div`
@@ -63,6 +58,9 @@ export default () => (
         </MenuItem>
         <MenuItem to='/transactions'>
           <p>Transactions</p>
+        </MenuItem>
+        <MenuItem to='/flow'>
+          <p>Create Order</p>
         </MenuItem>
       </Menu>
     </Sidebar>

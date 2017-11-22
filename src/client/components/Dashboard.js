@@ -1,10 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Root = styled.div`
 
-export default({match}) => {
-  console.log(match.params)
-  return <div>
-    asdasdadsasd
-    </div>
+`
+
+const Header = styled.div`
+  padding: 0.5rem;
+`
+
+export default() => {
+  return <Root>
+    <Header><h1>Dashboard</h1></Header>
+  </Root>
 }
