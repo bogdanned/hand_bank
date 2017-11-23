@@ -84,7 +84,7 @@ export default (props) => {
       <Menu>
         <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
         <MenuItem to='/flow'>
-          <Label><FontAwesome name={"fa-bar-chart"} size='lg'/>New Offer</Label>
+          <Label><FontAwesome name="fa-bar-chart" size='lg'/>New Offer</Label>
         </MenuItem>
         <MenuItem to='/'>
           <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
