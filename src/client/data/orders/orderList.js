@@ -6,7 +6,12 @@ export default [
     name: 'Order 1234234',
     id: 3456,
     services: services,
-    date: new Date()
+    date: new Date(),
+    customer: {
+      surname: "Surname",
+      name: "Name",
+      address: "test addres"
+    }
   },
   {
     name: 'Order 1123123',

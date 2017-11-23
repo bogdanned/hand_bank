@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import groupByManufacturer from '../../controllers/groupByManufacturer'
 
+import createCustomer from '../../controllers/fastBill/createCustomer'
+
 const Root = styled.div`
   width: 100%;
 `
@@ -61,6 +63,7 @@ export default class OrdersMan extends React.Component{
       )
     })
     return (<Root>
+        <button onClick={createCustomer(this.props.order)}>Create Cutomer</button>
         {servicesRen}
       </Root>)
   }

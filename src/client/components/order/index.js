@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import {Menu} from 'semantic-ui-react'
 
+import Header from '../Header'
 import ordersList from '../../data/orders/orderList'
 import OrderDetailSupplier from './orderDetailSupplier'
 import OrderDetailOffer from './orderDetailOffer'
@@ -12,9 +13,6 @@ const Root = styled.div`
   width: 100%;
 `
 
-const Header = styled.div`
-  padding: 0.5rem;
-`
 
 const ProdRoot = styled.div`
   display: flex;
@@ -87,7 +85,7 @@ export default class Order extends React.Component{
       <Service service={s} key={s.name}></Service>
     ))
     return <Root>
-          <h1>{order.name}</h1>
+          <Header title={order.name}/>
           <Menu pointing secondary>
             <Menu.Item name='Offer Details' active={this.state.order === 'offer'} onClick={this.onClickOffer} />
             <Menu.Item name='Materials' active={this.state.order === 'supplier'} onClick={this.onClickSupplier} />
