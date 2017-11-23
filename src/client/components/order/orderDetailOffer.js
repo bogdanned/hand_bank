@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import groupByManufacturer from '../../controllers/groupByManufacturer'
 
-import createCustomer from '../../controllers/fastBill/createCustomer'
+import createBill from '../../controllers/fastBill/createBill'
 
 const Root = styled.div`
   width: 100%;
@@ -64,24 +64,66 @@ const PlaceOrder = styled.button`
   padding: 5px;
   font-size: 14px;
   border-radius: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
   :focus{
     outline: none;
+  }
+  :hover{
+    background-color: white;
+    color: #2ecc71;
+    border-color: #2ecc71;
+  }
+  :focus{
+    outline: none;
+    border-color: #2ecc71;
+  }
+`
+
+const ViewBill = styled.a`
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
+  :hover{
+    background-color: white;
+    color: #2ecc71;
+    border-color: #2ecc71;
+  }
+  :focus{
+    outline: none;
+    border-color: #2ecc71;
   }
 `
 
 const CtaContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `
 
 export default class OrdersMan extends React.Component{
   constructor(props){
     super(props)
     this.onClick = this.onClick.bind(this)
+    this.state = {
+      bill: false
+    }
   }
-  onClick(e){
-    createCustomer(this.props.order)
+  async onClick(e){
+    console.log('--a-sdasd')
+    e.preventDefault()
+
+    let res = await createBill(this.props.order)
+    let bill = await res.json()
+    console.log(bill)
+    this.setState({
+      bill: bill.url
+    })
   }
   render(){
     let servicesRen = this.props.order.services.map(s => {
@@ -91,7 +133,17 @@ export default class OrdersMan extends React.Component{
     })
     return (<Root>
         <CtaContainer>
-          <PlaceOrder onClick={this.onClick}>Create Customer</PlaceOrder>
+
+          {
+          <PlaceOrder onClick={this.onClick}>Generate Invoice</PlaceOrder>
+
+          }
+          {
+            this.state.bill && <ViewBill href={'/invoice_234567.pdf'}>
+              View Invoice
+            </ViewBill>
+
+          }
         </CtaContainer>
         {servicesRen}
       </Root>)

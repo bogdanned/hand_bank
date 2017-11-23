@@ -6,8 +6,14 @@ const api = {
   rootUrl: 'https://my.fastbill.com/api/1.0/api.php'
 }
 
-export default (order) => {
-  // fetch customer by name
-  // if not create customer
-  // create a bil
+export default async (order) => {
+  const res = await fetch('/createBill', {
+    method: "post",
+    body: JSON.stringify(order),
+    cors: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  return res
 }

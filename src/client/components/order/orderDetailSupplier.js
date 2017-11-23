@@ -4,7 +4,7 @@ import groupByManufacturer from '../../controllers/groupByManufacturer'
 
 
 const Root = styled.div`
-
+  margin-right: 20px;
 `
 
 const Header = styled.div`
@@ -23,6 +23,8 @@ const ServiceRoot = styled.div`
   border: black 1px solid;
   width: 100%;
   padding: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
   border-radius: 0px;
   margin: 5px;
 `
@@ -82,11 +84,11 @@ export default class OrdersMan extends React.Component{
     })
     return (<Root>
         <PlaceOrderContainer>
-          <PlaceOrder>Order Materials</PlaceOrder>
+          <PlaceOrder>Generate Materials Order</PlaceOrder>
         </PlaceOrderContainer>
         {rendMan}
         <PlaceOrderContainer>
-          <PlaceOrder>Order Materials</PlaceOrder>
+          <PlaceOrder>Generate Materials Order</PlaceOrder>
         </PlaceOrderContainer>
       </Root>)
   }

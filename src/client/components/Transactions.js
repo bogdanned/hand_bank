@@ -9,6 +9,6 @@ const Root = styled.div`
 
 export default() => {
   return <Root>
-    <Header title={"Forecasting"} />
+    <Header title={"Assistance"} />
   </Root>
 }

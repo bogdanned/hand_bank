@@ -96,7 +96,7 @@ export default (props) => {
           <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers Payments</Label>
         </MenuItem>
         <MenuItem to='/transactions'>
-          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Forecasting</Label>
+          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Assistance</Label>
         </MenuItem>
       </Menu>
       <Footer>
