@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
+var FontAwesome = require('react-fontawesome');
+
 
 import Test from './test'
 import Dashboard from './Dashboard'
@@ -11,6 +13,7 @@ import OrderList from './orderList'
 import Order from './order/index.js'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
+import Forecasting from './Forecasting'
 
 import Login from './Login'
 
@@ -52,6 +55,19 @@ const MenuItem = styled(Link)`
   text-transform: none;
 `
 
+const GreenSave = styled.div`
+  color: #2ecc71;
+  border-color: #2ecc71;
+`
+
+
+const NewOffer = styled.div`
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+
+`
+
 const Label = styled.p`
   cursor: pointer;
   color: white
@@ -83,9 +99,6 @@ export default (props) => {
     <Sidebar>
       <Menu>
         <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
-        <MenuItem to='/flow'>
-          <Label>New Offer</Label>
-        </MenuItem>
         <MenuItem to='/'>
           <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
         </MenuItem>
@@ -95,7 +108,7 @@ export default (props) => {
         <MenuItem to='/suppliers'>
           <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers Payments</Label>
         </MenuItem>
-        <MenuItem to='/transactions'>
+        <MenuItem to='/assistance'>
           <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Assistance</Label>
         </MenuItem>
       </Menu>
@@ -104,14 +117,22 @@ export default (props) => {
       </Footer>
     </Sidebar>}
     <Content>
+      <Route path="/forecasting" component={Forecasting} />
       <Route exact path="/" component={Dashboard}/>
       <Route exact path="/login" component={Login}/>
       <Route exact path="/offers" component={OrderList}/>
       <Route path="/offers/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>
-      <Route path="/transactions" component={Transactions}/>
       <Route path="/flow" component={Flow}/>
       <Route path="/test" component={Test}/>
+      <Route path="/assistance" component={Transactions}/>
     </Content>
+    <NewOffer>
+      <Link to='/flow'>
+        <GreenSave>
+          <FontAwesome name="plus-circle" size='4x'/>
+        </GreenSave>
+      </Link>
+    </NewOffer>
   </Root>
 }

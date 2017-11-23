@@ -1,1 +1,1 @@
-{"app":{"js":"http://localhost:5000/bundle-app.js"},"vendor":{"js":"http://localhost:5000/bundle-vendor.js"}}
+{"app":{"js":"http://localhost:5000/bundle-app.js"},"flow":{"js":"http://localhost:5000/bundle-flow.js"},"vendor":{"js":"http://localhost:5000/bundle-vendor.js"}}

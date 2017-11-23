@@ -8,7 +8,7 @@ import AssetsPlugin from 'assets-webpack-plugin'
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 
-const isDev = process.env.isDev == "true" || false,
+const isDev = true,
       port = 5000
 
 console.log(process.env.isDev == "true")
@@ -34,6 +34,12 @@ export default {
   },
   entry : isDev
     ? {
+      flow: [
+        'babel-polyfill',
+        'react-hot-loader/patch',
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, '/src/flow/index.js')
+      ],
       app: [
         'babel-polyfill',
         'react-hot-loader/patch',
@@ -44,6 +50,10 @@ export default {
       vendor
     }
     : {
+      flow: [
+        'babel-polyfill',
+        path.join(__dirname, '/src/client/index.js')
+      ],
       app: [
         'babel-polyfill',
         path.join(__dirname, '/src/client/index.js')
@@ -88,6 +98,11 @@ export default {
       filename: "index.html",
       template: "index.html.ejs",
       chunks: ["vendor", "app"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "index2.html",
+      template: "index.html.ejs",
+      chunks: ["flow"]
     }),
     new AssetsPlugin(),
     new webpack.NoEmitOnErrorsPlugin()

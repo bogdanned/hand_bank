@@ -3,7 +3,6 @@ var FontAwesome = require('react-fontawesome');
 import styled from "styled-components"
 import {Link} from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import Header from './Header'
 
 import './styles.css'
 
@@ -400,7 +399,6 @@ export default class FlowComponent extends React.Component {
     ))
     return (
       <Root>
-        <Header title={"New Offer"} />
         <FlowContainer>
           <StepTitle>{step.title}</StepTitle>
           <TransitionGroup className='todo-list'>

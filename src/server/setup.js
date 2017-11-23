@@ -123,7 +123,6 @@ export default (app) => {
     res.json({url: 'http://my.fastbill.com/download/Qhb.4qpRwj1e1l.02xOywGJ5yNaLOQsqOiT40BZngMKfP.NvTImDWDhNTM'})
   })
 
-  app.use(express.static('public'))
 
 
   return app
