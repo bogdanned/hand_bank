@@ -7,7 +7,7 @@ import PieChart from './PieChart'
 import BarChart from './BarChart'
 
 const Root = styled.div`
-
+  width: 100%;
 `
 
 const Dashboard =styled.div`
