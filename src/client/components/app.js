@@ -4,10 +4,9 @@ import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
 var FontAwesome = require('react-fontawesome');
 
-
+import "../styles.css"
 import Test from './test'
 import Dashboard from './Dashboard'
-import Flow from './flow'
 import data from '../data/offer'
 import OrderList from './orderList'
 import Order from './order/index.js'
@@ -15,6 +14,7 @@ import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 import Forecasting from './Forecasting'
 
+import FlowPage from './flowPage'
 import Login from './Login'
 
 const Root = styled.div`
@@ -87,18 +87,27 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 8rem;
+  color: white;
+  font-size: 70px;
+  font-weight: 700;
   border-bottom: 2px solid rgba(255,255,255, 0.7);
+  p {
+    height: 62px;
+font-size: 27px;
+color: white;
+font-weight: 700;
+  }
 `
 
 export default (props) => {
   let locations = window.location.href.split('/')
   console.log()
-  let noSide = locations[locations.length - 1] !== "login"
+  let noSide = locations[locations.length - 1] !== "flow"
   return <Root>
     {noSide &&
     <Sidebar>
       <Menu>
-        <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
+        <Logo><p>Hand-Werks</p></Logo>
         <MenuItem to='/'>
           <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
         </MenuItem>
@@ -123,16 +132,9 @@ export default (props) => {
       <Route exact path="/offers" component={OrderList}/>
       <Route path="/offers/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>
-      <Route path="/flow" component={Flow}/>
+      <Route path="/flow" component={FlowPage}/>
       <Route path="/test" component={Test}/>
       <Route path="/assistance" component={Transactions}/>
     </Content>
-    <NewOffer>
-      <Link to='/flow'>
-        <GreenSave>
-          <FontAwesome name="plus-circle" size='4x'/>
-        </GreenSave>
-      </Link>
-    </NewOffer>
   </Root>
 }

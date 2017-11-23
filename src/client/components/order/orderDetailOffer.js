@@ -139,7 +139,7 @@ export default class OrdersMan extends React.Component{
 
           }
           {
-            this.state.bill && <ViewBill href={'/invoice_234567.pdf'}>
+            this.state.bill && <ViewBill href={'/invoice.pdf'}>
               View Invoice
             </ViewBill>
 

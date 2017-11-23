@@ -30,6 +30,22 @@ const flow = {
   name: "flow",
   steps: [
     {
+      title: "Is it a renovation or a new project?",
+      type: "options",
+      name: "heating_one",
+      options: [
+        {
+          label: "Renovation",
+          iconName: "cogs",
+          name: "sdfsdfdsf"
+        }, {
+          label: "New Bathroom",
+          iconName: "bath",
+          name: "sdfsdf"
+        }
+      ]
+    },
+    {
       title: "Is there a bath tube needed?",
       type: "options",
       name: "heating_one",
@@ -208,8 +224,13 @@ const OptionWrapper = styled.button `
     color: white;
   }
   p {
-    font-weight: 800;
     padding: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  span{
+    font-size: 90px;
+
   }
 `
 
@@ -234,7 +255,9 @@ const Input = styled.input`
 
 const Label = styled.p`
   margin-left: 10px;
-  font-size: 20;
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
 `
 
 class CustomerForm extends React.Component{
@@ -338,7 +361,7 @@ const EndMoney = styled.div`
 class End extends React.Component{
   render(){
     return(
-      <EndContainer>
+      <EndContainer id="flow">
         <Link to="/offers">
           <EndMetrics>
             <EndMoney>
@@ -361,13 +384,14 @@ class End extends React.Component{
 
 const ButtonsContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
 `
 
 const StepTitle = styled.h5`
   margin-left: 10px;
-  font-size: 20;
+  font-size: 40px;
+  margin-bottom: 20px;
 `
 
 export default class FlowComponent extends React.Component {
@@ -400,7 +424,6 @@ export default class FlowComponent extends React.Component {
     ))
     return (
       <Root>
-        <Header title={"New Offer"} />
         <FlowContainer>
           <StepTitle>{step.title}</StepTitle>
           <TransitionGroup className='todo-list'>
