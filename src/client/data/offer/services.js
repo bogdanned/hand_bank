@@ -216,7 +216,7 @@ export default[
         producer: "JM Eagle"
       }
     ]
-  }
+  },
   {
     name: "Heating",
     quality: "Normal",
