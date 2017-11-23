@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import {Button} from 'semantic-ui-react'
 import {Route,Link} from 'react-router-dom'
+var FontAwesome = require('react-fontawesome');
+
 
 import Test from './test'
 import Dashboard from './Dashboard'
@@ -11,6 +13,7 @@ import OrderList from './orderList'
 import Order from './order/index.js'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
+import Forecasting from './Forecasting'
 
 
 const Root = styled.div`
@@ -81,7 +84,7 @@ export default (props) => {
       <Menu>
         <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
         <MenuItem to='/flow'>
-          <Label>New Offer</Label>
+          <Label><FontAwesome name={"fa-bar-chart"} size='lg'/>New Offer</Label>
         </MenuItem>
         <MenuItem to='/'>
           <Label active={locations[locations.length - 1] == "" ? true : false}>Dashboard</Label>
@@ -92,8 +95,8 @@ export default (props) => {
         <MenuItem to='/suppliers'>
           <Label active={locations[locations.length - 1] == "suppliers" ? true : false}>Suppliers Payments</Label>
         </MenuItem>
-        <MenuItem to='/transactions'>
-          <Label active={locations[locations.length - 1] == "transactions" ? true : false}>Forecasting</Label>
+        <MenuItem to='/forecasting'>
+          <Label active={locations[locations.length - 1] == "forecasting" ? true : false}>Forecasting</Label>
         </MenuItem>
       </Menu>
       <Footer>
@@ -101,11 +104,11 @@ export default (props) => {
       </Footer>
     </Sidebar>
     <Content>
+      <Route path="/forecasting" component={Forecasting} />
       <Route exact path="/" component={Dashboard}/>
       <Route exact path="/offers" component={OrderList}/>
       <Route path="/offers/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>
-      <Route path="/transactions" component={Transactions}/>
       <Route path="/flow" component={Flow}/>
       <Route path="/test" component={Test}/>
     </Content>
