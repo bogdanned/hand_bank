@@ -6,6 +6,7 @@ import createCustomer from '../../controllers/fastBill/createCustomer'
 
 const Root = styled.div`
   width: 100%;
+  padding: 10px;
 `
 
 const Header = styled.div`
@@ -23,22 +24,25 @@ const ServiceRoot = styled.div`
   flex-direction: column;
   border: black 1px solid;
   width: 100%;
-  padding: 20px;
-  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 5px;
 `
 
+const Name = styled.p`
+  width: 30%;
+`
 
 const Product = ({product: {name, price, producer}}) => (
   <ProdRoot>
-    <h6>{`${name}`}</h6>
+    <Name>{`${name}`}</Name>
     <h6>{`Price: ${price}`}</h6>
     <h6>{`Manufacturer: ${producer}`}</h6>
   </ProdRoot>
 )
 
 const Products = ({products}) => {
-  let prodRend = products.map(p => (<Product product={p}/>))
+  let prodRend = products.map(p => (<Product product={p} key={p.name}/>))
   return (
     <div>
       {prodRend}
@@ -53,17 +57,42 @@ const Service = ({service: {name, products, quality}}) => (
   </ServiceRoot>
 )
 
+const PlaceOrder = styled.button`
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 0px;
+  :focus{
+    outline: none;
+  }
+`
 
+const CtaContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`
 
 export default class OrdersMan extends React.Component{
+  constructor(props){
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+  onClick(e){
+    createCustomer(this.props.order)
+  }
   render(){
     let servicesRen = this.props.order.services.map(s => {
       return(
-        <Service service={s} />
+        <Service key={s.id} service={s} />
       )
     })
     return (<Root>
-        <button onClick={createCustomer(this.props.order)}>Create Cutomer</button>
+        <CtaContainer>
+          <PlaceOrder onClick={this.onClick}>Create Customer</PlaceOrder>
+        </CtaContainer>
         {servicesRen}
       </Root>)
   }

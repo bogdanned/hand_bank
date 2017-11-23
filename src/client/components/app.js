@@ -12,6 +12,7 @@ import Order from './order/index.js'
 import Suppliers from './Suppliers'
 import Transactions from './Transactions'
 
+import Login from './Login'
 
 const Root = styled.div`
   display: flex;
@@ -76,7 +77,9 @@ const Logo = styled.div`
 export default (props) => {
   let locations = window.location.href.split('/')
   console.log()
+  let noSide = locations[locations.length - 1] !== "login"
   return <Root>
+    {noSide &&
     <Sidebar>
       <Menu>
         <Logo><img src="./images/logo.png" height="60" width="42"/></Logo>
@@ -97,11 +100,12 @@ export default (props) => {
         </MenuItem>
       </Menu>
       <Footer>
-        <p>Bad Mueler Berlin</p>
+        <p>Bad Mueller Berlin</p>
       </Footer>
-    </Sidebar>
+    </Sidebar>}
     <Content>
       <Route exact path="/" component={Dashboard}/>
+      <Route exact path="/login" component={Login}/>
       <Route exact path="/offers" component={OrderList}/>
       <Route path="/offers/:id" component={Order}/>
       <Route path="/suppliers" component={Suppliers}/>

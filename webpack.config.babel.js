@@ -8,8 +8,10 @@ import AssetsPlugin from 'assets-webpack-plugin'
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 
-const isDev = process.env.isDev || false,
+const isDev = process.env.isDev == "true" || false,
       port = 5000
+
+console.log(process.env.isDev == "true")
 
 const vendor = [
   "react",
@@ -49,7 +51,7 @@ export default {
       vendor
     },
   output : {
-    path: path.join(__dirname, "public"),
+    path: isDev ? '/' : path.join(__dirname, "public"),
     filename: isDev
       ? 'bundle-[name].js'
       : 'bundle-[name]-[hash].js',
@@ -87,10 +89,8 @@ export default {
       template: "index.html.ejs",
       chunks: ["vendor", "app"]
     }),
-    new CompressionWebpackPlugin({asset: "[path].gz[query]", algorithm: "gzip", test: /\.(js|html)$/, threshold: 10240, minRatio: 0.8}),
     new AssetsPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new UglifyJSPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
     // do not emit compiled assets that include errors
   ],
   module : {

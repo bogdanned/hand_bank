@@ -22,8 +22,8 @@ const ServiceRoot = styled.div`
   flex-direction: column;
   border: black 1px solid;
   width: 100%;
-  padding: 20px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 0px;
   margin: 5px;
 `
 
@@ -69,9 +69,8 @@ const PlaceOrder = styled.button`
   color: white;
   padding: 5px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 0px;
 `
-
 
 export default class OrdersMan extends React.Component{
   render(){

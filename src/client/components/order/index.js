@@ -13,7 +13,6 @@ const Root = styled.div`
   width: 100%;
 `
 
-
 const ProdRoot = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,9 +24,10 @@ const ServiceRoot = styled.div`
   flex-direction: column;
   border: black 1px solid;
   width: 100%;
-  padding: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 4px;
-  margin: 5px;
+  margin: 0px;
 `
 
 
