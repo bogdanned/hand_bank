@@ -62,12 +62,12 @@
     "semantic-ui-react": "^0.76.0",
     "styled-components": "^2.1.2",
     "webpack": "2.6.1",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "uglifyjs-webpack-plugin": "^1.1.0"
   },
   "devDependencies": {
     "file-loader": "^1.1.5",
     "style-loader": "^0.19.0",
-    "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "^0.6.2"
   }
 }
